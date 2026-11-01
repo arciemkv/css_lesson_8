@@ -1,78 +1,84 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.product-box {
-    position: relative;
-    background: #fff;
-    width: 300px;
-    height: 250px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.product-box img {
-    max-width: 80%;
-    max-height: 80%;
-}
-
+/* Базовый блок картинки с обрезкой выходящей ленты */
 .ribbon {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    top: -5px;
-    right: -5px;
+    color: #fff; 
+    position: relative;
+    display: inline-block;
     overflow: hidden;
-}
-
-.ribbon-text {
-    position: absolute;
-    background-color: #e67e22; 
-    color: #fff;
+    padding: 5px;
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    border: none; /* Убрали серую рамку */
+    width: 250px; 
+    height: 200px; 
     text-align: center;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 7px 0;
-    width: 170px;
-    top: 30px;
-    right: -35px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    
-    -webkit-transform: rotate(35deg);
+    background-color: white;
+}
+
+.ribbon img {
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5%;
+}
+
+/* Строчное отображение контейнера текста */
+.ribbon p {
+    display: inline;
+    margin: 0; 
+}
+
+/* Сама наклонная ленточка с уникальными параметрами */
+.ribbon p span {
     -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
     -o-transform: rotate(35deg);
-    transform: rotate(35deg); 
-}
-
-.ribbon:before, .ribbon:after {
-    content: "";
+    transform: rotate(35deg);
+    
+    display: block; 
+    text-align: center;
+    width: 150px; 
+    text-transform: uppercase;
+    padding: 5px 0;
+    
+    /* Кастомизация: оранжевый цвет */
+    background: #e67e22; 
+    
     position: absolute;
-    border-top: 5px solid #b35f17; /* Темный оттенок для тени загиба */
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+    top: 15px; 
+    right: -35px; 
+    
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3); 
 }
 
-.ribbon:before {
-    top: 0;
-    left: 0;
+/* Формирование 3D-загибов (селекторы строго по методичке) */
+.ribbon p:before {
+    content: "";
+    width: 0;
+    position: absolute;
+    height: 0;
+    top: 5px; /* Безопасная позиция, чтобы не обрезал overflow */
+    right: 37px; 
+    border-color: transparent transparent #bd6315 transparent; /* Темно-оранжевый */
+    z-index: -1;
+    border-style: solid;
+    border-width: 0 0 10px 10px; 
 }
 
-.ribbon:after {
-    bottom: 0;
-    right: 0;
+.ribbon p:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    height: 0;
+    top: 61px; 
+    right: -10px; /* Безопасная позиция, чтобы не обрезал overflow */
+    border-style: solid;
+    border-width: 10px 0 0 10px; 
+    z-index: -1;
+    border-color: #bd6315 transparent transparent transparent; /* Темно-оранжевый */
 }
+
+/*
+1. За счет каких свойств CSS создается трехмерный эффект «загиба» ленты за край картинки?
+Ответ: Трехмерный эффект загиба создается с помощью псевдоэлементов :before и :after. Мы делаем их пустыми блоками с нулевой шириной, а форму треугольника получаем с помощью свойства border, окрашивая одну из сторон рамки в темный цвет, а остальные делая прозрачными (transparent).
+*/
