@@ -1,4 +1,4 @@
-/* Базовый блок картинки с обрезкой выходящей ленты */
+
 .ribbon {
     color: #fff; 
     position: relative;
@@ -8,7 +8,7 @@
     font-weight: 900;
     font-family: Arial, sans-serif;
     margin: 20px;
-    border: none; /* Убрали серую рамку */
+    border: none; /
     width: 250px; 
     height: 200px; 
     text-align: center;
@@ -21,13 +21,13 @@
     margin-top: 5%;
 }
 
-/* Строчное отображение контейнера текста */
+
 .ribbon p {
     display: inline;
     margin: 0; 
 }
 
-/* Сама наклонная ленточка с уникальными параметрами */
+
 .ribbon p span {
     -moz-transform: rotate(35deg);
     -ms-transform: rotate(35deg);
@@ -41,7 +41,7 @@
     text-transform: uppercase;
     padding: 5px 0;
     
-    /* Кастомизация: оранжевый цвет */
+    
     background: #e67e22; 
     
     position: absolute;
@@ -51,15 +51,15 @@
     box-shadow: 0px 2px 5px rgba(0,0,0,0.3); 
 }
 
-/* Формирование 3D-загибов (селекторы строго по методичке) */
+
 .ribbon p:before {
     content: "";
     width: 0;
     position: absolute;
     height: 0;
-    top: 5px; /* Безопасная позиция, чтобы не обрезал overflow */
+    top: 5px; 
     right: 37px; 
-    border-color: transparent transparent #bd6315 transparent; /* Темно-оранжевый */
+    border-color: transparent transparent #bd6315 transparent; 
     z-index: -1;
     border-style: solid;
     border-width: 0 0 10px 10px; 
@@ -71,11 +71,11 @@
     position: absolute;
     height: 0;
     top: 61px; 
-    right: -10px; /* Безопасная позиция, чтобы не обрезал overflow */
+    right: -10px; 
     border-style: solid;
     border-width: 10px 0 0 10px; 
     z-index: -1;
-    border-color: #bd6315 transparent transparent transparent; /* Темно-оранжевый */
+    border-color: #bd6315 transparent transparent transparent; 
 }
 
 /*
