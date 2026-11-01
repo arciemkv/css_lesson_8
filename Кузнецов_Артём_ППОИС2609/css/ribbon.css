@@ -30,3 +30,49 @@ body {
     max-width: 80%;
     max-height: 80%;
 }
+
+.ribbon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -5px;
+    right: -5px;
+    overflow: hidden;
+}
+
+.ribbon-text {
+    position: absolute;
+    background-color: #e67e22; 
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 7px 0;
+    width: 170px;
+    top: 30px;
+    right: -35px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    transform: rotate(35deg); 
+}
+
+.ribbon:before, .ribbon:after {
+    content: "";
+    position: absolute;
+    border-top: 5px solid #b35f17; /* Темный оттенок для тени загиба */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.ribbon:before {
+    top: 0;
+    left: 0;
+}
+
+.ribbon:after {
+    bottom: 0;
+    right: 0;
+}
