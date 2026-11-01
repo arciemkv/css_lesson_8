@@ -1,54 +1,36 @@
 
 .ribbon {
-    color: #fff; 
+    color: #9ac42c;
     position: relative;
     display: inline-block;
     overflow: hidden;
     padding: 5px;
     font-weight: 900;
     font-family: Arial, sans-serif;
-    margin: 20px;
-    border: none; /
-    width: 250px; 
-    height: 200px; 
-    text-align: center;
-    background-color: white;
-}
-
-.ribbon img {
-    max-width: 90%;
-    max-height: 90%;
-    margin-top: 5%;
 }
 
 
 .ribbon p {
     display: inline;
-    margin: 0; 
 }
 
 
 .ribbon p span {
-    -moz-transform: rotate(35deg);
-    -ms-transform: rotate(35deg);
-    -webkit-transform: rotate(35deg);
-    -o-transform: rotate(35deg);
-    transform: rotate(35deg);
-    
-    display: block; 
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: inline-block;
     text-align: center;
-    width: 150px; 
+    width: 100px;
     text-transform: uppercase;
-    padding: 5px 0;
-    
-    
-    background: #e67e22; 
-    
+    padding: 3px 10px;
+    background: #d93131;
     position: absolute;
-    top: 15px; 
-    right: -35px; 
-    
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.3); 
+    top: 22px;
+    right: -25px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2), inset 0px 5px 30px rgba(255,255,255,0.3);
 }
 
 
@@ -57,12 +39,11 @@
     width: 0;
     position: absolute;
     height: 0;
-    top: 5px; 
-    right: 37px; 
-    border-color: transparent transparent #bd6315 transparent; 
+    top: -17px;
+    border-color: transparent transparent #eeeeee transparent;
     z-index: -1;
-    border-style: solid;
-    border-width: 0 0 10px 10px; 
+    right: 69px;
+    border: 17px solid;
 }
 
 .ribbon p:after {
@@ -70,15 +51,14 @@
     width: 0;
     position: absolute;
     height: 0;
-    top: 61px; 
-    right: -10px; 
-    border-style: solid;
-    border-width: 10px 0 0 10px; 
+    top: 74px;
+    border: 17px solid;
     z-index: -1;
-    border-color: #bd6315 transparent transparent transparent; 
+    border-color: #eeeeee transparent transparent transparent;
+    right: -10px;
 }
 
-/*
+/* Своими словами:
 1. За счет каких свойств CSS создается трехмерный эффект «загиба» ленты за край картинки?
-Ответ: Трехмерный эффект загиба создается с помощью псевдоэлементов :before и :after. Мы делаем их пустыми блоками с нулевой шириной, а форму треугольника получаем с помощью свойства border, окрашивая одну из сторон рамки в темный цвет, а остальные делая прозрачными (transparent).
+Ответ: Трехмерный эффект загиба создается с помощью псевдоэлементов :before и :after. Мы задаем им нулевую ширину и высоту (width: 0, height: 0), а форму треугольника формируем за счет толстых рамок (border: 17px solid), где одна сторона цветная, а остальные делаются прозрачными (transparent). Отрицательный z-index прячет загиб под саму ленту.
 */
